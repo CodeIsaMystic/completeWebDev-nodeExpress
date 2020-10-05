@@ -8,16 +8,23 @@
  */
 const express = require('express');
 
+
 /**
  * To Grab & parse infos
  */
 const bodyParser = require('body-parser');
 
-
-
-
 const app = express();
-app.use(express.static());
+/**
+ * To serve Simple Static assets
+ *  => load a static page
+ *  => will load css & js if there are
+ */
+
+app.use(express.static(__dirname + '/public'));
+
+
+
 
 
 
