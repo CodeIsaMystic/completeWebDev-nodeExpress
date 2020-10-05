@@ -1,73 +1,85 @@
-/**
- * Some others Modules (global to node)
- * 
- * FileSystem
- const usedToHandleTextFile = require('fs');
- console.log(usedToHandleTextFile);
- 
- const usedToHandleTextFile = require('fs').readFile;
- will output the content of the file ...
+const fs = require('fs');
 
- *Http 
- const usedTobuiltAserver = require('http');
- console.log(usedTobuiltAserver);
+
+/**
+ * readFile is Asynchronous
+ * with a Callback function
+ * 
+ * maybe a preference...
  */
+fs.readFile('./hello.txt', (err, data) => {
+  if(err) {
 
+    console.log('Async', 'There is an Errror');
 
+  }
+
+  //console.log('Async', data); => buffer
+  //console.log('Async' ,data.toString());  => ok by default
+  console.log('Async', data.toString('utf8'));
+});
 
 
 /**
- * Import Modules
- * return unexpected token => node need the es6 pack
+ * readFileSync is Synchronous
  * 
- //import largeNumber from 'script2';
-const script2 = require('./script2');
+ * it seems better to use a Async method cos' we do not know
+ * how long is the file or eventually how long it could be
+ * as he stay , waiting the right time to be readed
+ */
+const file = fs.readFileSync('./hello.txt');
+//console.log('Sync', file); => buffer
+console.log('Sync', file.toString());
 
-
-const a = script2.largeNumber;
-const b = 5;
+/**
+ * Append data to a file 
+ * 
+ * is the first param create the file 
+ * if it do not exist!???
+ *
+fs.appendFile('./hello.txt', ' You are all so Good!!', err => {
+  if(err) {
+    console.log(err);
+  }
+});
 */
 
 
-
-
-
 /**
- *  bash : node script.js
+ * Write data to a file 
  * 
- 
-const a = 4;
-const b = 5;
-
-console.log(a + b);
-*/ 
-
-
-
-
-/**
- *  bash : node script.js, the program runs after 3s delay
- 
-const a = 4;
-const b = 5;
-
-setTimeout(() => {
-  console.log(a + b);
-}, 3000);
+ * is the first param create the file 
+ * if it do not exist!???
+ *
+fs.writeFile('./bye.txt', "Hey!! Here's the Magic", err => {
+  if(err) {
+    console.log(err);
+  }
+});
 */
 
 
-
-
-
-
-
 /**
- *  bash : node script.js
+ * Delete file 
  * 
- * display the current dir
- * 
- * 
- console.log(__dirname);
  */
- 
+fs.unlink('./bye.txt', err => {
+  if(err) {
+    console.log(err);
+  }
+  console.log('Inception');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+// run node script.js
