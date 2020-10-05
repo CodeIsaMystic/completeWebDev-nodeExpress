@@ -1,0 +1,22 @@
+{
+  "name": "completewebdev-nodeexpress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeIsaMystic/completeWebDev-nodeExpress.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodeIsaMystic/completeWebDev-nodeExpress/issues"
+  },
+  "homepage": "https://github.com/CodeIsaMystic/completeWebDev-nodeExpress#readme",
+  "dependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
